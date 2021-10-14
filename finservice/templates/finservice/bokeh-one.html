@@ -1,0 +1,45 @@
+{% extends "finservice/base_bokeh.html" %}
+
+{% block content2 %}
+<img src="{{ user.profile.image.url }}" height="40" width="40" alt="">
+{% endblock content2 %}
+
+
+{% block content %}
+
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+        </ol>
+    </div>
+</div>
+<!-- row -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4>Chart of {{ market }} history <a class="btn btn-outline-info" href="{% url market ric=ric %}">Data</a> </h4>
+                    </div>
+                    <div class="">
+                        {{div| safe}}
+                    </div>
+                    <div>
+                        {{ debug }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{{script | safe}}
+
+{% endblock content %}
+
+

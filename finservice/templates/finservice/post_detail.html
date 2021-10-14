@@ -1,0 +1,37 @@
+{% extends "finservice/base.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-xl-9">
+
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a> <small class="text-muted ml-3">{{ object.date_posted|date:"F d, Y" }}</small></h4>
+
+          <div class="bootstrap-media">
+            <div class="media">
+              <img class="mr-3 img-fluid" src="{{ object.author.profile.image.url }}" width="50" height="50" alt="photo">
+              <div class="media-body">
+                <h5 class="mt-0"><a class="article-title" href="{% url 'post-detail' object.id %}">{{ object.title }}</a></h5>
+                {% if object.author == user %}
+	        <div>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+            	  </div>
+                {% endif %}
+                {{ object.content }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends "finservice/base.html" %}
+
+{% block content2 %}
+<img src="{{ user.profile.image.url }}" height="40" width="40" alt="">
+{% endblock content2 %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-xl-9">
+
+      <div class="card">
+        <div class="card-body">
+          <form action="#" class="form-profile" method="post">
+            {% csrf_token %}
+            <h3 class="card-title">Delete Post</h3>
+            <h4>Are you sure you want to delete the post "{{ object.title }}"</h4>
+            <div class="d-flex align-items-left">
+              <button type="submit" class="btn btn-primary btn-outline-danger">Delete</button>
+	      <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

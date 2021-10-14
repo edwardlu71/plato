@@ -1,0 +1,91 @@
+{% extends "finservice/base.html" %}
+
+{% block content2 %}
+<img src="{{ user.profile.image.url }}" height="40" width="40" alt="">
+{% endblock content2 %}
+
+
+{% block content %}
+
+
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+	   <div class="container-fluid">
+	   <div class="row">
+		  <div class="col-lg-4 col-xl-3">
+			 <div class="card">
+				<div class="card-body">
+				   <div class="media align-items-center mb-4">
+					  <img class="mr-3" src="{{ user.profile.image.url }}" width="160" height="160" alt="">
+					  <div class="media-body">
+						 <h3 class="mb-0">{{ user.username }}</h3>
+						 <p class="text-muted mb-0">Earth</p>
+					  </div>
+				   </div>
+
+				   <div class="row mb-5">
+					<div class="form-validation">
+						<form class="login-input" action="#" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label" for="val-username">User <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-9">
+								  <input type="text" class="form-control" id="id_username" name="username" value="{{ user.username }}">
+								</div>
+								<label class="col-lg-3 col-form-label" for="val-username">Email <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-9">
+								  <input type="text" class="form-control" id="id_email" name="email" value="{{ user.email }}">
+								</div>
+								<label class="col-lg-3 col-form-label" for="val-username">Photo <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-9">
+								  <input type="file" class="form-control" name="image" id="id_image" />
+								</div>
+							</div>
+							<div class="form-group row">
+                                                          <div class="col-lg-9 ml-auto">
+                                                              <button type="submit" class="btn btn-primary">Submit</button>
+                                                          </div>
+                                                        </div>
+						</form>
+					</div>
+				   </div>
+				</div>
+			 </div>
+		  </div>
+		  <div class="col-lg-8 col-xl-9">
+			 <div class="card">
+				<div class="card-body">
+				   <div class="media media-reply">
+					  <img class="mr-3 circle-rounded" src="images/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
+					  <div class="media-body">
+						 <div class="d-sm-flex justify-content-between mb-2">
+							<h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+							<div class="media-reply__link">
+							   <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+							   <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+							   <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
+							</div>
+						 </div>
+						 <p>Cras sit amet nibh libero.</p>
+					  </div>
+				   </div>
+				</div>
+			 </div>
+		  </div>
+	   </div>
+	   </div>
+
+{% endblock content %}
